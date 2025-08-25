@@ -944,6 +944,7 @@
                 <button type="button" onclick="selectSymptom(this, 'treatment3')" data-category="ハンドネイル" data-price="15000">ワンカラー</button>
                 <button type="button" onclick="selectSymptom(this, 'treatment4')" data-category="ハンドネイル" data-price="15000">シンプルアート</button>
                 <button type="button" onclick="selectSymptom(this, 'treatment5')" data-category="ハンドネイル" data-price="15000">ボリュームアート</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment5')" data-category="ハンドネイル" data-price="15000">オフのみ</button>
             </div>
             <div class="highlight-background">
                 <span class="highlight-text">オプション</span>
@@ -961,6 +962,7 @@
             <div class="symptoms">
                 <button type="button" onclick="selectSymptom(this, 'treatment6')" data-category="フォットネイル" data-price="15000">ベーシックコース</button>
                 <button type="button" onclick="selectSymptom(this, 'treatment7')" data-category="フォットネイル" data-price="15000">ケアコース</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment5')" data-category="フォットネイル" data-price="15000">オフのみ</button>
             </div>
             <div class="highlight-background">
                 <span class="highlight-text">オプション</span>
@@ -1087,6 +1089,7 @@
 
         let menuTimes = {
             'ケアのみ': 45,
+            'オフのみ': 45,
             'クリアジェル': 50,
             'ワンカラー': 95,
             'シンプルアート': 120,
@@ -1639,8 +1642,10 @@
                 }
             }
 
-            // 現在の日時を取得
-            const now = new Date();
+// 現在の日時を取得
+const now = new Date();
+const oneMonthLater = new Date(now);
+oneMonthLater.setMonth(now.getMonth() + 1);
 
             // テーブルの内容を更新
             for (let i = 0; i < 7; i++) {
@@ -1683,13 +1688,19 @@
                         continue;
                     }
 
-                    // ここで終了時間を使った条件処理を行う
-                    // 例えば、リアルタイムで既に過ぎた時間帯は×にする
-                    if (slotStart < now) {
-                        cell.textContent = '✕';
-                        cell.classList.add('unavailable');
-                        continue;
-                    }
+        // 1か月以降は✕にする
+        if (slotStart > oneMonthLater) {
+            cell.textContent = '✕';
+            cell.classList.add('unavailable');
+            continue;
+        }
+
+        // すでに過ぎた時間帯は✕にする
+        if (slotStart < now) {
+            cell.textContent = '✕';
+            cell.classList.add('unavailable');
+            continue;
+        }
 
                     const isBusinessDay = businessDays.some(businessDay => {
                         const businessDayStart = new Date(businessDay.start);
