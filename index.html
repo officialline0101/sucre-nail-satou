@@ -894,6 +894,32 @@
             background-color: #c0392b;
             /* ホバー時に少し濃く */
         }
+
+.info-textmenu {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 13px;
+    color: #000000;
+    line-height: 1.5;
+    text-align: center;
+    word-wrap: break-word;
+    background-color: #eef9f5;
+    padding: 10px;
+    border-radius: 4px;
+
+    position: relative;
+    top: -8px; /* ← 全体を8pxだけ上にずらす */
+}
+
+/* 携帯端末向けのレスポンシブデザイン */
+@media (max-width: 768px) {
+    .info-textmenu {
+        font-size: 11.5px;
+        margin-top: 1px;
+        line-height: 2.0;
+        top: -5px; /* ← スマホは4pxだけ上にずらす */
+    }
+}
     </style>
 </head>
 
