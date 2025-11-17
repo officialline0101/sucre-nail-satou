@@ -952,6 +952,7 @@
         <div class="menu-sections">
             <button type="button" onclick="showMenu('male')">ハンドネイル</button>
             <button type="button" onclick="showMenu('female')">フットネイル</button>
+            <button type="button" onclick="showMenu('BONDIST')">BONDIST</button>
             <button type="button" onclick="showMenu('whitening')">スカルプチュア(10本長さ出し)</button>
         </div>
 
@@ -1008,6 +1009,15 @@
                 <button type="button" id="firstirradiations" onclick="selectirradiations(this)" data-price="15000">オフあり(+15分)</button>
                 <button type="button" id="repeatirradiations" onclick="selectirradiations(this)" data-price="15000">オフなし</button>
                 <button type="button" id="sanirradiations" onclick="selectirradiations(this)" data-price="15000">アートあり(+10分)</button>
+            </div>
+        </div>
+
+        <div id="BONDIST" class="menu-section">
+            <div class="highlight-background">
+                <span class="highlight-text">◆BONDIST◆</span>
+            </div>
+            <div class="symptoms">
+                <button type="button" onclick="selectSymptom(this, 'treatment5')" data-category="BONDIST" data-price="15000">BONDIST</button>
             </div>
         </div>
 
@@ -1127,6 +1137,7 @@
         let selectedirradiationsTime = 0; // 訪問回数で選択された時間
 
         let menuTimes = {
+            'BONDIST': 30,
             'ケアのみ': 45,
             'マニキュア': 60,
             'オフのみ': 35,
@@ -1577,11 +1588,6 @@ function submitForm() {
 
     if (!formData.dates) {
         alert('希望日時を選択してください。');
-        return;
-    }
-
-    if (!irradiationsText) {
-        alert('オプションを選択してください。');
         return;
     }
 
