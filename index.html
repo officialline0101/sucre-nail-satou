@@ -964,7 +964,7 @@
             </div>
             <div class="symptoms">
                 <button type="button" onclick="selectSymptom(this, 'treatment5')" data-category="ハンドネイル" data-price="15000">オフのみ</button>
-                <div class="info-textmenu">オフのみ：35分</div>
+                <div class="info-textmenu">オフのみ：35分<br>※「オフのみ」をお選びいただいた方はオプションを「オフなし」を選択してください。</div>
                 <button type="button" onclick="selectSymptom(this, 'treatment1')" data-category="ハンドネイル" data-price="15000">マニキュア</button>
                 <div class="info-textmenu">マニキュア：50分</div>
                 <button type="button" onclick="selectSymptom(this, 'treatment1')" data-category="ハンドネイル" data-price="15000">ケアのみ</button>
@@ -994,10 +994,10 @@
             <div class="symptoms">
                 <button type="button" onclick="selectSymptom(this, 'treatment5')" data-category="フットネイル" data-price="15000">オフのみ</button>
                 <div class="info-textmenu">オフのみ：35分</div>
-                <button type="button" onclick="selectSymptom(this, 'treatment6')" data-category="フットネイル" data-price="15000">ベーシックコース</button>
-                <div class="info-textmenu">ベーシックコース：90分</div>
-                <button type="button" onclick="selectSymptom(this, 'treatment7')" data-category="フットネイル" data-price="15000">BEBEケアコース</button>
-                <div class="info-textmenu">BEBEケアコース：90分</div>
+                <button type="button" onclick="selectSymptom(this, 'treatment6')" data-category="フットネイル" data-price="15000">ベーシックコース（ジェルワンカラー込み）</button>
+                <div class="info-textmenu">ベーシックコース（ジェルワンカラー込み）：90分</div>
+                <button type="button" onclick="selectSymptom(this, 'treatment7')" data-category="フットネイル" data-price="15000">BEBEケアコース（足裏角質ケアのみ）</button>
+                <div class="info-textmenu">BEBEケアコース（足裏角質ケアのみ）：110分<br>※「BEBEケアコース」をお選びの方はオプションから「ジェルカラー有り」か「ジェルカラー無し」のどちらかをお選びください。</div>
             </div>
             <div class="highlight-background">
                 <span class="highlight-text">オプション<span class="required">必須</span></span>
@@ -1006,6 +1006,13 @@
                 <button type="button" id="firstirradiations" onclick="selectirradiations(this)" data-price="15000">オフあり(+15分)</button>
                 <button type="button" id="repeatirradiations" onclick="selectirradiations(this)" data-price="15000">オフなし</button>
                 <button type="button" id="sanirradiations" onclick="selectirradiations(this)" data-price="15000">アートあり(+10分)</button>
+            </div>
+            <div class="highlight-background">
+                <span class="highlight-text">オプション<br>（BEBEケアコースをお選びの方）</span>
+            </div>
+            <div class="irradiations">
+                <button type="button" id="yonirradiations" onclick="selectirradiations(this)" data-price="15000">ジェルカラー有り（+30分）</button>
+                <button type="button" id="goirradiations" onclick="selectirradiations(this)" data-price="15000">ジェルカラー無し</button>
             </div>
         </div>
 
@@ -1128,7 +1135,9 @@
             'オフあり(+15分)': 15,
             'オフなし': 0,
             'アートあり(+10分)': 15,
-            'オフあり(+30分)': 30
+            'オフあり(+30分)': 30,
+            'ジェルカラー有り（+30分）（BEBEケアの方のみ選択）': 40,
+            'ジェルカラー無し（BEBEケアの方のみ選択）': 0
         };
 
         let selectedirradiationsTime = 0; // 訪問回数で選択された時間
@@ -1142,8 +1151,8 @@
             'ワンカラー': 95,
             'シンプルアート': 120,
             'ボリュームアート': 140,
-            'ベーシックコース': 90,
-            'BEBEケアコース': 90,
+            'ベーシックコース（ジェルワンカラー込み）': 90,
+            'BEBEケアコース（足裏角質ケアのみ）': 110,
             '10本長さ出し': 180,
             '10本長さ出し＋ジェルコート': 210  
         };
